@@ -12,3 +12,5 @@ import 'chart.js/dist/chart'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require('./graph')

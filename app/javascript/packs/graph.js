@@ -3,8 +3,6 @@ document.addEventListener('turbolinks:load', () => {
   const lineLabel = ['1/1', '1/2', '1/4', '1/5', '1/6', '1/7']
   const lineData = [60.3, 61.1, 60.8, null, 60.5, 61.4]
 
-  // 折れ線グラフのオプション
-
   const lineChartData = {
     labels: lineLabel,
     datasets: [
@@ -27,7 +25,7 @@ document.addEventListener('turbolinks:load', () => {
     },
     tooltips: {
       callbacks: {
-        // ホバー時のラベル表示を変更
+        // ホバー時のラベル表示を変更する
         title: function (tooltipItems) {
           return tooltipItems[0].xLabel.replace(/^(\d+).(\d+)$/, ' $1 月 $2 日')
         },

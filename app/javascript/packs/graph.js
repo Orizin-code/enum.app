@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', () => {
-  // 折れ線グラフのデータ（値を変更するとグラフが変化することを確認してみて下さい）
+  // 折れ線グラフのデータ
   const lineLabel = ['1/1', '1/2', '1/4', '1/5', '1/6', '1/7']
   const lineData = [60.3, 61.1, 60.8, null, 60.5, 61.4]
 
@@ -11,7 +11,7 @@ document.addEventListener('turbolinks:load', () => {
       {
         label: '体重(kg)',
         data: lineData,
-        // グラフの色はここで変更できます
+        // グラフの色
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
@@ -27,7 +27,7 @@ document.addEventListener('turbolinks:load', () => {
     },
     tooltips: {
       callbacks: {
-        // ホバー（スマホならタップ）時のラベル表示を変更
+        // ホバー時のラベル表示を変更
         title: function (tooltipItems) {
           return tooltipItems[0].xLabel.replace(/^(\d+).(\d+)$/, ' $1 月 $2 日')
         },

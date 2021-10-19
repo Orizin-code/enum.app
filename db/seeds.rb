@@ -5,4 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+# 管理者用メールアドレスを設定
+admin_email = 'admin@example.com'
+
+AdminUser.find_or_create_by!(email: admin_email) do |adminuser|
+  adminuser.password = password
+  puts '管理者ユーザーの初期データインポートに成功しました。'
+end
+
+list = [
+  { date: Date.new(2020, 1, 1), weight: 60.3 },
+  { date: Date.new(2020, 1, 2), weight: 61.1 },
+  { date: Date.new(2020, 1, 3), weight: 60.8 },
+  { date: Date.new(2020, 1, 4), weight: nil },
+  { date: Date.new(2020, 1, 5), weight: 60.5 },
+  { date: Date.new(2020, 1, 6), weight: 61.4 }
+]
+
+Graph.destroy_all
+Graph.create!(list)
+puts '体重の初期データ投入に成功しました！'
